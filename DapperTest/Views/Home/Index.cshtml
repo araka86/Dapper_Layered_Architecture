@@ -1,0 +1,70 @@
+﻿@model IEnumerable<DapperTest.Models.User>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@if (Model == null)
+{
+    <form method="post">
+        <div>
+            <div class="m-3">
+                <label>UserId</label>
+                <input name="UserId" />
+            </div>
+            <div class="m-3 ">
+                <label>Email</label>
+                <input name="email" />
+            </div>
+            <div class="m-3 ">
+                <label>Password</label>
+                <input name="password" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-3 ">
+                    <button class="btn btn-info form-control ">Submit</button>
+                </div>
+                <div class="col-3">
+
+
+                    <button asp-action="Add" class="btn btn-info form-control">Add id</button>
+
+                </div>
+                <div class="col-3">
+
+                    <button asp-action="FindUser" class="btn btn-info form-control">Find User</button>
+                </div>
+
+                <div class="col-3">
+
+                    <button asp-action="FindAllUser" class="btn btn-info form-control">Find All</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </form>
+}
+@if (Model !=null)
+{
+    @foreach (var obj in Model)
+    {
+        <div>@obj.UserId</div>
+        <div>@obj.Email</div>
+        <hr />
+    }
+    
+}
+else
+{
+
+
+}
